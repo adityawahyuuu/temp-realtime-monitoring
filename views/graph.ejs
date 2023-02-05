@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <meta http-equiv="refresh" content="60">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <body>
+        <div id="myChart" style="width:100%; max-width:1800px; height:500px;"></div>
+        <script>
+            google.charts.load('current',{packages:['corechart']});
+            google.charts.setOnLoadCallback(drawChart);
+            var dataTemp = `<%= tempObj %>`;
+            var newTempData = dataTemp.split(',');
+            var tempData = []
+            var i = 0;
+            for (i=0; i<=dataTemp.length; i++){
+                var tempArray = [];
+                tempArray.push(newTempData[i]);
+                i += 1;
+                var tempVal = parseFloat(newTempData[i])
+                tempArray.push(tempVal);
+                tempData.push(tempArray);
+            }
+            function drawChart() {
+                // Set Data
+                var data = google.visualization.arrayToDataTable([
+                    ['Time', 'Temperature'],
+                    tempData[0],tempData[1],tempData[2],tempData[3],tempData[4],
+                    tempData[5],tempData[6],tempData[7],tempData[8],tempData[9],
+                    tempData[10],tempData[11],tempData[12],tempData[13],tempData[14],
+                    tempData[15],tempData[16],tempData[17],tempData[18],tempData[19],
+                    tempData[20],tempData[21],tempData[22],tempData[23],tempData[24],
+                    tempData[25],tempData[26],tempData[27],tempData[28],tempData[29],
+                ]);
+                // Set Options
+                var options = {
+                    title: 'Celcius  vs. Time',
+                    hAxis: {title: 'Time in YY-MM-DD:Minute:Second'},
+                    vAxis: {title: 'Temperature in Celcius'},
+                    legend: 'none'
+                };
+                // Draw
+                var chart = new google.visualization.LineChart(document.getElementById('myChart'));
+                chart.draw(data, options);
+            }
+        </script>
+
+    </body>
+</html>

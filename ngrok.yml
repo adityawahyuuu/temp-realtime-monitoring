@@ -1,0 +1,8 @@
+version: "2"
+authtoken: "your ngrok token"
+tunnels:
+ "name of tunnels":
+  proto: "your protocol"
+  addr: "your port"
+  schemes:
+   - "your scheme"

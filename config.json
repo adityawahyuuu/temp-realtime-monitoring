@@ -1,0 +1,16 @@
+{
+    "application": {
+      "host": "your host name",
+      "port": "ypur port",
+      "logLevel": "debug",
+      "dataStore": "redis"
+    },
+    "dataStores": {
+      "redis": {
+        "host": "your host name for redis",
+        "port": 6379,
+        "password": null,
+        "keyPrefix": "your key prefix"
+      }
+    }
+}
